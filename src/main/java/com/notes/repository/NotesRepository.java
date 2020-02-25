@@ -14,6 +14,7 @@ public class NotesRepository {
 
 	public UUID addNote(Note note) {
 		UUID id = UUID.randomUUID();
+		note.setId(id);
 		persistenceLayer.put(id, note);
 		return id;
 
@@ -21,6 +22,7 @@ public class NotesRepository {
 	
 	public UUID addNotewithUUID(UUID id, Note note) {
 		persistenceLayer.put(id,note);
+		note.setId(id);
 		return id;
 	}
 
@@ -39,5 +41,9 @@ public class NotesRepository {
 		}else {
 			return Optional.empty();
 		}
+	}
+	
+	public Note[] getAllNotes() {
+		return persistenceLayer.values().toArray(new Note[persistenceLayer.size()-1]);
 	}
 }

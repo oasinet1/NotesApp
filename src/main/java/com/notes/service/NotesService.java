@@ -2,8 +2,10 @@ package com.notes.service;
 
 import java.util.UUID;
 
-import com.notes.models.Note;
+import org.springframework.stereotype.Service;
 
+import com.notes.models.Note;
+@Service
 public interface NotesService {
 	
 	public UUID createNote(Note note);
@@ -14,6 +16,7 @@ public interface NotesService {
 	
 	public boolean deleteNote(UUID id);
 	
+	public Note[] getAllNotes();
 	
 
 }

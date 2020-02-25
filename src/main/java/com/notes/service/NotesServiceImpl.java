@@ -3,10 +3,11 @@ package com.notes.service;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.notes.models.Note;
 import com.notes.repository.NotesRepository;
-
+@Component
 public class NotesServiceImpl implements NotesService {
 
 	@Autowired
@@ -45,6 +46,10 @@ public class NotesServiceImpl implements NotesService {
 			// throw new exception
 			return false;
 		}
+	}
+	
+	public Note[] getAllNotes() {
+		return notesRepository.getAllNotes();
 	}
 
 }
